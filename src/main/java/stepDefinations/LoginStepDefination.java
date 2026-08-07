@@ -31,12 +31,15 @@ public class LoginStepDefination {
         System.out.println("Title of the login page is: " + title);
         Assert.assertEquals("Let's Shop", title);
     }
-    @Then("User enters valid username and password")
-    public void user_enters_valid_username_and_password() {
+    //Regular expression:
+    //1.  \"([^\"]*)\"
+    //2.  \"(.*)\"
+    @Then("^User enters valid \"(.*)\" and \"([^\"]*)\"$")
+    public void user_enters_valid_username_and_password(String username, String password) {
         driver.findElement(By.id("userEmail")).click();
-        driver.findElement(By.id("userEmail")).sendKeys("testauto_45@yopmail.com");
+        driver.findElement(By.id("userEmail")).sendKeys(username);
         driver.findElement(By.id("userPassword")).click();
-        driver.findElement(By.id("userPassword")).sendKeys("Testauto@45");
+        driver.findElement(By.id("userPassword")).sendKeys(password);
 
     }
     @Then("User clicks on the login button")
@@ -51,7 +54,8 @@ public class LoginStepDefination {
         System.out.println("Home page Text Validate...." + textValidatation);
         Assert.assertEquals("AUTOMATION", textValidatation);
     }
-    @Given("User is on the home page")
+
+    @Then("User is on the home page")
     public void user_is_on_the_home_page() {
         String getHomePageText = driver.findElement(By.xpath("//button[normalize-space()='HOME']")).getText();
         System.out.println("Get Home Page Button Text...." + getHomePageText);

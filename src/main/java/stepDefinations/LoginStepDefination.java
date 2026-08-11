@@ -25,12 +25,14 @@ public class LoginStepDefination {
         driver.get("https://rahulshettyacademy.com/client/#/auth/login");
 
     }
+
     @When("Title of the login page is Let's Shop")
     public void title_of_the_login_page_is_lets_shop() {
         String title = driver.getTitle();
         System.out.println("Title of the login page is: " + title);
         Assert.assertEquals("Let's Shop", title);
     }
+
     //Regular expression:
     //1.  \"([^\"]*)\"
     //2.  \"(.*)\"
@@ -42,11 +44,13 @@ public class LoginStepDefination {
         driver.findElement(By.id("userPassword")).sendKeys(password);
 
     }
+
     @Then("User clicks on the login button")
     public void user_clicks_on_the_login_button() {
         driver.findElement(By.id("login")).click();
 
     }
+
     @Then("User is navigated to the home page")
     public void user_is_navigated_to_the_home_page() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000));
@@ -60,6 +64,7 @@ public class LoginStepDefination {
         String getHomePageText = driver.findElement(By.xpath("//button[normalize-space()='HOME']")).getText();
         System.out.println("Get Home Page Button Text...." + getHomePageText);
     }
+
     @Then("User see a list of all the products displayed on the home page")
     public void user_see_a_list_of_all_the_products_displayed_on_the_home_page() {
         // 1. Define the locator matching ALL product name elements
@@ -81,8 +86,7 @@ public class LoginStepDefination {
                     System.out.println("- " + productName);
                 }
             }
-        }
-        else {
+        } else {
             System.out.println("No products found with the specified locator.");
         }
 

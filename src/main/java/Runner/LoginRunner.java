@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "E:\\Intellij_IDEA_Projects\\Selenium_Cucumber_Beginner_Examples\\src\\main\\java\\Features\\login_DataTable.feature", //the path of the feature file.
+        features = "E:\\Intellij_IDEA_Projects\\Selenium_Cucumber_Beginner_Examples\\src\\main\\java\\Features\\login_Maps_DataDriven.feature", //the path of the feature file.
         glue = {"stepDefinations"}, //the path of the step defination file.
         plugin = { //to generate different types of reporting.
                 "pretty",
